@@ -41,7 +41,7 @@ function [a, ah] = BFa(p, t, L, mu, net, mc)
             g = 0;
             for i = 1:length(neigh_nodes)                    
                 arc = find_arc_by_nodes(net, neigh_nodes(i), k);
-                g = g + exp(-(a_prev(neigh_nodes(i)) + t(arc)/mu));
+                g = g + exp(-(a_prev(neigh_nodes(i)) + t(arc))/mu);
             end
             a(k,l) =  -mu*log(g);
             ah(k,l) =  -mu*log(exp(-ah(k,l-1)/mu) + g);
